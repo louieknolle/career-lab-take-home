@@ -1,21 +1,21 @@
 import { Button } from '@mui/material';
 import React from 'react';
 
+const containerStyles = {
+	height: '40%',
+	width: '80%',
+	margin: 'auto',
+	yOverflow: 'hidden',
+	flexDirection: 'column',
+	display: 'flex',
+	justifyContent: 'space-evenly',
+	alignItems: 'center',
+};
+
 const SelectedArtDetails = ({ artwork, handleGoBack }) => {
 	console.log(artwork);
 	return artwork ? (
-		<div
-			style={{
-				height: '40%',
-				width: '80%',
-				margin: 'auto',
-				yOverflow: 'hidden',
-				flexDirection: 'column',
-				display: 'flex',
-				justifyContent: 'space-evenly',
-				alignItems: 'center',
-			}}
-		>
+		<div style={containerStyles}>
 			<h1>{artwork.title}</h1>
 			<h2>{artwork.artist_title}</h2>
 			<h3>{artwork.date_display}</h3>
