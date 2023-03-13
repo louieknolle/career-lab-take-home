@@ -7,20 +7,25 @@ import {
 	Button,
 	Typography,
 	Grid,
-	Modal,
 } from '@mui/material';
 import { Box } from '@mui/system';
 import SelectedArtDetails from './SelectedArtDetails';
 
-const ArtResults = ({ artworks }) => {
+const ArtResults = ({
+	artworks,
+	artworkSelectedToFalse,
+	artworkSelectedToTrue,
+}) => {
 	const [selectedArtwork, setSelectedArtwork] = React.useState(null);
 
 	const handleLearnMore = (artwork) => {
 		setSelectedArtwork(artwork);
+		artworkSelectedToTrue();
 	};
 
-	const handleCloseModal = () => {
+	const handleGoBack = () => {
 		setSelectedArtwork(null);
+		artworkSelectedToFalse();
 	};
 
 	console.log(artworks[0].image_id);
@@ -75,7 +80,7 @@ const ArtResults = ({ artworks }) => {
 			) : (
 				<SelectedArtDetails
 					artwork={selectedArtwork}
-					handleGoBack={handleCloseModal}
+					handleGoBack={handleGoBack}
 				/>
 			)}
 		</>
